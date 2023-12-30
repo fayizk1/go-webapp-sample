@@ -1,3 +1,3 @@
 FROM scratch
-COPY ./webapp /webapp
-CMD ["/webapp"]
+COPY ./go-webapp-sample /go-webapp-sample
+CMD ["/go-webapp-sample"]
