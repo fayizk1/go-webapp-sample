@@ -15,3 +15,9 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: "{{ secrets.KBKC }}"
+      - name: Deploy to the Kubernetes cluster
+        uses: azure/k8s-deploy@v1
+        with:
+          namespace: example-app1
+          manifests: |
+            templates/deploy.yaml
