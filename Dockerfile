@@ -1,5 +1,6 @@
 FROM alpine:3.18
-COPY ./go-webapp-sample /go-webapp-sample 
+WORKDIR /
+COPY ./go-webapp-sample . 
 RUN chmod +x /go-webapp-sample 
 RUN ls -l / 
-CMD ["/go-webapp-sample "]
+CMD ["/go-webapp-sample"]
