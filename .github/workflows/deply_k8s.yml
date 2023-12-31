@@ -9,7 +9,7 @@ jobs:
     # You need to use the INSTALLATION_NAME from the previous step
     runs-on: t803-runner-set
     steps:
-      - name: Checkout Repo
+      - name: fCheckout Repo
         uses: actions/checkout@v2
       - uses: azure/k8s-set-context@v2
         with:
