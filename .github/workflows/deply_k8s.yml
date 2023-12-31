@@ -21,4 +21,5 @@ jobs:
         with:
           namespace: example-app1
           manifests: |
+            templates/namespace.yaml
             templates/deploy.yaml
