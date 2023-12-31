@@ -13,6 +13,5 @@ jobs:
         uses: actions/checkout@v2
       - uses: azure/k8s-set-context@v2
         with:
-          method: service-account
-          k8s-url: https://0.0.0.0:44775
-          k8s-secret: "{{ secrets.K8S_SECRET }}"
+          method: kubeconfig
+          kubeconfig: {{secrets.KBKC}}
