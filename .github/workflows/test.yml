@@ -1,11 +1,13 @@
 
-name: Actions Runner Controller Demo
+name: Actions Runner Controller Kubectl
 on:
-  workflow_dispatch:
+  push:
+    branches: [ "master" ]
 
 jobs:
   Explore-GitHub-Actions:
     # You need to use the INSTALLATION_NAME from the previous step
     runs-on: t803-runner-set
     steps:
-    - run: kubectl get po
+      - name: Checkout Repo
+        uses: actions/checkout@v2
