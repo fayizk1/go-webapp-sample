@@ -18,12 +18,17 @@ jobs:
           method: kubeconfig
           kubeconfig: "${{ secrets.KBKC }}"
       - uses: azure/setup-kubectl@v2.0
+      - uses: azure/k8s-bake@v2.4
+        with:
+          renderEngine: 'kustomize'
+          kustomizationPath: './templates/dev'
+        id: bake
+
+
       - name: Deploy to the Kubernetes cluster
         uses: azure/k8s-deploy@v4
         with:
           namespace: example-app1
-          manifests: |
-            templates/namespace.yaml
-            templates/deploy.yaml
+          manifests: ${{ steps.bake.outputs.manifestsBundle }}
           images: |
             ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }}
