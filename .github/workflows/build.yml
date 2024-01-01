@@ -49,19 +49,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: ["build"]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
-          repository: ${{env.GITOPS_REPO}}
+          repository: git@github.com:fayizk1/cicd-config-try.git
           token: ${{secrets.GITHUB_TOKEN}}
 
       - name: install Kustomize
         run: curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
 
       - run: ../../kustomize edit set image ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }}
-        working-directory: templates/argo
+        working-directory: kustomize/argo
 
       - run: ../../kustomize build
-        working-directory: templates/argo
+        working-directory: kustomize/argo
 
       # - run: |
       #     git config user.email "gitops@example.com"
