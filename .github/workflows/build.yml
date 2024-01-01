@@ -41,5 +41,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }}
+          tags: 
+            - ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }}
+            - ghcr.io/fayizk1/go-webapp-sample:deploy
           
