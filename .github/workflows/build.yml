@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: fayizk1/cicd-config-try
-          token: ${{secrets.GITHUB_TOKEN}}
+          token: ${{secrets.GIT_PAT}}
 
       - name: install Kustomize
         run: curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
