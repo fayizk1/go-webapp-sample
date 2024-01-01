@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: example-app
-        image: ghcr.io/fayizk1/go-webapp-sample
+        image: ghcr.io/fayizk1/go-webapp-sample:deploy
         ports:
         - containerPort: 8080
