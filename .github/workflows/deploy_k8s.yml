@@ -7,7 +7,7 @@ on:
       - completed
 
 jobs:
-  Explore-GitHub-Actions:
+  deploy-Actions:
     # You need to use the INSTALLATION_NAME from the previous step
     runs-on: t803-runner-set
     steps:
