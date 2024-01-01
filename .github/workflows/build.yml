@@ -51,7 +51,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: git@github.com:fayizk1/cicd-config-try.git
+          repository: fayizk1/cicd-config-try
           token: ${{secrets.GITHUB_TOKEN}}
 
       - name: install Kustomize
