@@ -57,5 +57,6 @@ jobs:
       - name: install Kustomize
         run: curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
 
-      - run: ./kustomize edit set image ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }}
+      # - run: ./kustomize edit set image ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }}
+      - run: ls ./
         working-directory: templates/argo
