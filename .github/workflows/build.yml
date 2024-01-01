@@ -60,8 +60,8 @@ jobs:
       - run: ../../kustomize edit set image ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }}
         working-directory: ks/argo
 
-      - run: ../../kustomize build
-        working-directory: ks/argo
+      - run: ../../kustomize edit set image ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }}
+        working-directory: ks/fluxcd
 
       - run: |
           git config user.email "gitops@example.com"
