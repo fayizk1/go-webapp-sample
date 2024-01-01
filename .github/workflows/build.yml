@@ -45,3 +45,14 @@ jobs:
             ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }} 
             ghcr.io/fayizk1/go-webapp-sample:deploy
           
+  update_image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{env.GITOPS_REPO}}
+          token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: install Kustomize
+        run: curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+      
