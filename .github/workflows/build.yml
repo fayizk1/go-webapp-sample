@@ -59,3 +59,14 @@ jobs:
 
       - run: ../../kustomize edit set image ghcr.io/fayizk1/go-webapp-sample:${{ github.sha }}
         working-directory: templates/argo
+
+      - run: ../../kustomize build
+        working-directory: templates/argo
+
+      - run: |
+          git config user.email "gitops@example.com"
+          git config user.name "gitops"
+          git commit -am "Gitops updated image to ${{ github.sha }}"
+          git pull --rebase
+          git push
+        
